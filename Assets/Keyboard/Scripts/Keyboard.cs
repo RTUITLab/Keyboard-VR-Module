@@ -17,7 +17,7 @@ public class Keyboard : MonoBehaviour
         UpdateKeysField();
 
         foreach (var layout in layouts) layout.SetActive(false);
-        ChangeLayout();
+        layouts[currentLayout].SetActive(true);
     }
 
     #region Ввод
