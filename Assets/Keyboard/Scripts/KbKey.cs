@@ -27,24 +27,11 @@ public class KbKey : MonoBehaviour
         EventClick.AddListener(KeyClicked);
     }
 
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (keyField)
-            gameObject.name = "Key_" + keyField.text.ToUpper();
-
-        // Обновляет коллайдеры кнопки для взаимодействия в VR в соответствии с шириной и высотой RectTransform.
-        // Да, GetComponent'ы в апдейте, но кешировать эти ссылки на эти компоненты не стоит.
-        GetComponent<BoxCollider>().size = new Vector2(GetComponent<RectTransform>().rect.width,
-                                                       GetComponent<RectTransform>().rect.height);
-    }
-#endif
-
     public void KeyClicked()
     {
         switch (key)
         {
-            case Keys.Symbol:
+            case Keys.Symbol: // Самая распространненая клавиша. Вводит символ из подчиненного текстового поля.
                 char symbol = keyField.text[0];
                 keyboard.AddChar(symbol);
                 break;
@@ -57,10 +44,10 @@ public class KbKey : MonoBehaviour
             case Keys.Shift:
                 keyboard.ToggleShift();
                 break;
-            case Keys.Clear: // Стерка всего.
+            case Keys.Clear:
                 keyboard.ClearAll();
                 break;
-            case Keys.Backspace: // Стерка одной буквы.
+            case Keys.Backspace:
                 keyboard.RemoveChar();
                 break;
             case Keys.SwitchLayout:
@@ -77,6 +64,36 @@ public class KbKey : MonoBehaviour
             else
                 keyField.text = keyField.text.ToLower();
     }
+
+#if UNITY_EDITOR
+    /// <summary>
+    /// Сделано для упрощения создания новых раскладок, обновление происходит только в редакторе.
+    /// </summary>
+    private void Update()
+    {
+        if (Application.isEditor && !Application.isPlaying)
+        {
+            if (keyField)
+            {
+                // Делаем все клавиши заглавными для упрощения, но в плеймоде они могут становиться строчными.
+                keyField.text = keyField.text.ToUpper();
+
+                // Именуем объекты в иерархии по шаблону.
+                gameObject.name = "Key_" + keyField.text; 
+
+                if (key == Keys.Symbol && keyField.text.Length > 1)
+                {
+                    Debug.LogError($"Клавиша {gameObject.name} имеет функцию символа (key == Keys.Symbol), " +
+                        $"\nдлина текста не может превышать 1 символ.");
+                }
+            }
+
+            // Обновляем коллайдеры кнопок для взаимодействия в VR в соответствии с шириной и высотой RectTransform.
+            var rect = GetComponent<RectTransform>().rect;
+            GetComponent<BoxCollider>().size = new Vector2(rect.width, rect.height);
+        }
+    }
+#endif
 }
 
 public enum Keys
