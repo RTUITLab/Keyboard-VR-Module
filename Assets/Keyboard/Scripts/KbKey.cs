@@ -10,9 +10,11 @@ public class KbKey : MonoBehaviour
     [Header("Параметры клавиши")]
     [Tooltip("Symbol означает стандартную клавишу. " +
         "Значение будет браться с подчиненного текстового поля.")]
-    [SerializeField] private Keyboard keyboard;
     [SerializeField] private Keys key;
+
+    private Image keyImage;
     private Text keyField;
+    private Keyboard keyboard;
 
     [HideInInspector] public UnityEvent EventClick;
     [HideInInspector] public UnityEvent EventInside;
@@ -20,18 +22,22 @@ public class KbKey : MonoBehaviour
 
     private void Start()
     {
+        keyImage = GetComponent<Image>();
         keyField = GetComponentInChildren<Text>();
+
         keyboard = GetComponentInParent<Keyboard>();
         keyboard.kbKeys.Add(this);
 
         EventClick.AddListener(KeyClicked);
+        EventInside.AddListener(OnStartHover);
+        EventOutside.AddListener(OnEndHover);
     }
 
-    public void KeyClicked()
+    private void KeyClicked()
     {
         switch (key)
         {
-            case Keys.Symbol: // Самая распространненая клавиша. Вводит символ из подчиненного текстового поля.
+            case Keys.Symbol: // Стандартная клавиша. Вводит символ из подчиненного текстового поля.
                 char symbol = keyField.text[0];
                 keyboard.AddChar(symbol);
                 break;
@@ -58,22 +64,35 @@ public class KbKey : MonoBehaviour
 
     public void UpdateKeyField(bool shiftPressed)
     {
-        if (key == Keys.Symbol)
-            if (shiftPressed)
-                keyField.text = keyField.text.ToUpper();
-            else
-                keyField.text = keyField.text.ToLower();
+        if (keyField)
+        {
+            if (key == Keys.Symbol)
+                if (shiftPressed)
+                    keyField.text = keyField.text.ToUpper();
+                else
+                    keyField.text = keyField.text.ToLower();
 
-        if (key == Keys.Shift)
-            if (shiftPressed)
-                keyField.fontStyle = FontStyle.Bold;
-            else
-                keyField.fontStyle = FontStyle.Normal;
+            if (key == Keys.Shift)
+                if (shiftPressed)
+                    keyField.fontStyle = FontStyle.Bold;
+                else
+                    keyField.fontStyle = FontStyle.Normal;
+        }
+    }
+
+    private void OnStartHover()
+    {
+        keyImage.color = new Color32(255, 255, 200, 255);
+    }
+
+    private void OnEndHover()
+    {
+        keyImage.color = new Color32(255, 255, 255, 255);
     }
 
 #if UNITY_EDITOR
     /// <summary>
-    /// Сделано для упрощения создания новых раскладок, обновление происходит только в редакторе.
+    /// Сделано для упрощения создания новых раскладок и изменения размеров клавиш, обновление происходит только в редакторе.
     /// </summary>
     private void Update()
     {

@@ -411,15 +411,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.844747
+      value: -8.66
       objectReference: {fileID: 0}
     - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.994593
+      value: 14.98
       objectReference: {fileID: 0}
     - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.434483
+      value: -14.84
       objectReference: {fileID: 0}
     - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1101,11 +1101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 839895010228525736}
     m_Modifications:
-    - target: {fileID: 907616610488816567, guid: 095606f5f4ec6464a91f3c6274baffdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 907616610782945808, guid: 095606f5f4ec6464a91f3c6274baffdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1215,11 +1210,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keyboard
-      objectReference: {fileID: 0}
-    - target: {fileID: 5030485615602237553, guid: 095606f5f4ec6464a91f3c6274baffdf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 095606f5f4ec6464a91f3c6274baffdf, type: 3}
