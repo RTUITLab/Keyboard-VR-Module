@@ -63,6 +63,12 @@ public class KbKey : MonoBehaviour
                 keyField.text = keyField.text.ToUpper();
             else
                 keyField.text = keyField.text.ToLower();
+
+        if (key == Keys.Shift)
+            if (shiftPressed)
+                keyField.fontStyle = FontStyle.Bold;
+            else
+                keyField.fontStyle = FontStyle.Normal;
     }
 
 #if UNITY_EDITOR

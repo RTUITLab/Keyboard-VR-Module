@@ -1523,7 +1523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2014"
+  m_Text: "\xBF"
 --- !u!1 &817913718479234243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,7 +3483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &907616610488816564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17921,7 +17921,7 @@ GameObject:
   - component: {fileID: 8036960954507638510}
   - component: {fileID: 4508654506127876342}
   m_Layer: 5
-  m_Name: "Key_\u2014"
+  m_Name: "Key_\xBF"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18145,7 +18145,7 @@ GameObject:
   - component: {fileID: 7214221622351722169}
   - component: {fileID: 3944304006817044302}
   m_Layer: 5
-  m_Name: Key_-
+  m_Name: "Key_\u2013"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19235,7 +19235,7 @@ GameObject:
   - component: {fileID: 3982955474446785983}
   - component: {fileID: 4151482441467910588}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: Icon Inactive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19827,7 +19827,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-'
+  m_Text: "\u2013"
 --- !u!1 &4137714822438688975
 GameObject:
   m_ObjectHideFlags: 0
@@ -21708,7 +21708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4250906854413648996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22334,7 +22334,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2013"
+  m_Text: "\u2014"
 --- !u!1 &5209582380325925224
 GameObject:
   m_ObjectHideFlags: 0
@@ -27457,7 +27457,7 @@ GameObject:
   - component: {fileID: 8259617951558530954}
   - component: {fileID: 3710169124100868307}
   m_Layer: 5
-  m_Name: "Key_\u2013"
+  m_Name: "Key_\u2014"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
