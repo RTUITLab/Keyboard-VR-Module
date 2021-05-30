@@ -15,7 +15,12 @@ public class KeyboardUsingExample : MonoBehaviour
         inputField.text = text; // В данном примере просто выводим его на экран.
     }
 
-    private void Methods()
+    public void OnClickSave()
+    {
+        Debug.LogWarning("Метод сохранения текста не реализован!");
+    }
+
+    private void Usages()
     {
         keyboard.ForceSetInput("Новый текст"); // Введенный текст заменится указанным.
 

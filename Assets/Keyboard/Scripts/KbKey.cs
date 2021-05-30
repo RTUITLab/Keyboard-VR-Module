@@ -16,7 +16,9 @@ public class KbKey : MonoBehaviour
     private Text keyField;
     private Keyboard keyboard;
 
-    [HideInInspector] public UnityEvent EventClick;
+    [Tooltip("Помимо основного действия от параметра key, можно" +
+        "дополнительно задать метод, который будет вызываться при нажатии.")]
+    public UnityEvent EventClick;
     [HideInInspector] public UnityEvent EventInside;
     [HideInInspector] public UnityEvent EventOutside;
 
@@ -123,6 +125,6 @@ public class KbKey : MonoBehaviour
 
 public enum Keys
 {
-    Symbol, Enter, Space, Shift,
+    None, Symbol, Enter, Space, Shift,
     Clear, Backspace, SwitchLayout
 }
