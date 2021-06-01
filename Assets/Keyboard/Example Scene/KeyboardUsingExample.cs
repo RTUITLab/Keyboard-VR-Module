@@ -15,15 +15,22 @@ public class KeyboardUsingExample : MonoBehaviour
         inputField.text = text; // В данном примере просто выводим его на экран.
     }
 
-    public void OnClickSave()
-    {
-        Debug.LogWarning("Метод сохранения текста не реализован!");
-    }
-
     private void Usages()
     {
         keyboard.ForceSetInput("Новый текст"); // Введенный текст заменится указанным.
 
         keyboard.ClearAll(); // Введенный текст очистится до пустого поля.
+
+        keyboard.Disable(); // Отключение отображения клавиатуры вместе с лазерами на руках.
+
+        keyboard.Enable(); // Включение отображения клавиатуры вместе с лазерами на руках.
+    }
+
+    /// <summary>
+    /// Метод, вызываемый по нажатию на Enter в Single Line Field
+    /// </summary>
+    public void OnClickSave()
+    {
+        Debug.LogWarning("Метод сохранения текста не реализован!");
     }
 }

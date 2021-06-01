@@ -8,17 +8,15 @@ using UnityEngine.UI;
 public class KbKey : MonoBehaviour
 {
     [Header("Параметры клавиши")]
-    [Tooltip("Symbol означает стандартную клавишу. " +
-        "Значение будет браться с подчиненного текстового поля.")]
-    [SerializeField] private Keys key;
+    [SerializeField] private Keys key; // key = Key.Symbol означает стандартную клавишу, где
+                                       // значение будет браться с подчиненного текстового поля.
 
-    private Image keyImage;
-    private Text keyField;
-    private Keyboard keyboard;
+    private Image keyImage; // Меняет цвет при наведении лазером.
+    private Text keyField; // Подчиненное текстовое поле.
+    private Keyboard keyboard; // Ссылка на клавиатуру. Получается в Start() среди родителей.
 
-    [Tooltip("Помимо основного действия от параметра key, можно" +
-        "дополнительно задать метод, который будет вызываться при нажатии.")]
-    public UnityEvent EventClick;
+    public UnityEvent EventClick; // Помимо основного действия от параметра key, можно
+                                  // дополнительно задать метод, который будет вызываться при нажатии.
     [HideInInspector] public UnityEvent EventInside;
     [HideInInspector] public UnityEvent EventOutside;
 
