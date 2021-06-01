@@ -10,20 +10,20 @@ public class KeyboardUsingExample : MonoBehaviour
 
     private void Update()
     {
-        string text = keyboard.Text; // Получаем значение введенного текста.
+        string text = keyboard.Text; // Получение введенного текста.
 
         inputField.text = text; // В данном примере просто выводим его на экран.
     }
 
     private void Usages()
     {
-        keyboard.ForceSetInput("Новый текст"); // Введенный текст заменится указанным.
+        keyboard.Enable(); // Включение клавиатуры вместе с лазерами для ввода.
 
-        keyboard.ClearAll(); // Введенный текст очистится до пустого поля.
+        keyboard.Disable(); // Выключение клавиатуры вместе с лазерами для ввода.
 
-        keyboard.Disable(); // Отключение отображения клавиатуры вместе с лазерами на руках.
+        keyboard.ClearAll(); // Очистка всего с клавиатуры.
 
-        keyboard.Enable(); // Включение отображения клавиатуры вместе с лазерами на руках.
+        keyboard.ForceSetInput("Новый текст"); // Замена текста на указанный.
     }
 
     /// <summary>
