@@ -11,8 +11,8 @@ using Valve.VR.Extras;
 /// </summary>
 public class KbKeyPointerMovement : KbKeyPointer
 {
-    [SerializeField] private Gradient colorPrograss;
-    [SerializeField] private float touchAccuracy; // При меньшем значении меньше усилий для нажатия.
+    [SerializeField] private Gradient colorProgress;
+    [SerializeField] private float touchAccuracy = 1f; // При меньшем значении меньше усилий для нажатия.
     private float touchProgress = 0;
 
     private void Awake()
@@ -46,6 +46,6 @@ public class KbKeyPointerMovement : KbKeyPointer
 
     private void SetLaserColor()
     {
-        laserPointer.color = colorPrograss.Evaluate(touchProgress);
+        laserPointer.color = colorProgress.Evaluate(touchProgress);
     }
 }
