@@ -5,7 +5,7 @@ using Valve.VR.Extras;
 
 public class KbKeyPointer : MonoBehaviour
 {
-    [SerializeField] private SteamVR_LaserPointer laserPointer;
+    [SerializeField] protected SteamVR_LaserPointer laserPointer;
 
     private void Awake()
     {
