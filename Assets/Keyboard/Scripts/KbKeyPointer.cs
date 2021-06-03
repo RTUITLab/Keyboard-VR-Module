@@ -7,7 +7,7 @@ public class KbKeyPointer : MonoBehaviour
 {
     [SerializeField] protected SteamVR_LaserPointer laserPointer;
 
-    private void Awake()
+    protected void Awake()
     {
         laserPointer.PointerIn += PointerInside;
         laserPointer.PointerOut += PointerOutside;

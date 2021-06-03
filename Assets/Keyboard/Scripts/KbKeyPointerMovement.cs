@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR;
 using Valve.VR.Extras;
 
@@ -14,32 +15,44 @@ public class KbKeyPointerMovement : KbKeyPointer
     [SerializeField] private Gradient colorProgress;
     [SerializeField] private float touchAccuracy = 1f; // При меньшем значении меньше усилий для нажатия.
     private float touchProgress = 0;
+    private PointerEventHandler click;
 
-    private void Awake()
+    private new void Awake()
     {
-        laserPointer.PointerOut += ResetTouch;
-        laserPointer.PointerClick -= PointerClick; // У нас собственный метод считывания нажатия.
+        base.Awake();
+
+        laserPointer.PointerOut += ResetClick;
+
+        // Переподписываеся, у нас собственный метод считывания нажатия.
+        laserPointer.PointerClick -= PointerClick; 
+        click += PointerClick;
     }
 
     private void Update()
     {
-        TrackTouch();
+        TrackClick();
         SetLaserColor();
     }
 
     /// <summary>
     /// Сброс прогресса нажатия при остановке наведения на клавишу.
     /// </summary>
-    private void ResetTouch(object sender, PointerEventArgs e)
+    private void ResetClick(object sender, PointerEventArgs e)
     {
         touchProgress = 0;
     }
 
-    private void TrackTouch()
+    private void TrackClick()
     {
         // Здесь будет происходить считывание прогресса нажатия на клавишу.
 
-        // В случае успешного нажатия вызываем PointerClick() и сбрасываем прогресс.
+
+        if (true)
+        {
+            // В случае успешного нажатия вызываем click и сбрасываем прогресс.
+
+            click.Invoke(default, default);
+        }
 
         throw new NotImplementedException();
     }
