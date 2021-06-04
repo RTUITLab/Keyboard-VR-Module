@@ -12,7 +12,6 @@ public class Keyboard : MonoBehaviour
     [SerializeField] private GameObject[] layouts;
     private int currentLayout = 0;
 
-    [SerializeField] private GameObject[] keyPointers; // Лазеры для ввода, включаемые и отключаемые вместе с клавиатурой.
     [SerializeField] private GameObject layoutParent;
 
     private void Start()
@@ -26,21 +25,11 @@ public class Keyboard : MonoBehaviour
     public void Enable()
     {
         layoutParent.SetActive(true);
-
-        foreach (var keyPointer in keyPointers)
-        {
-            keyPointer.SetActive(true);
-        }
     }
 
     public void Disable()
     {
         layoutParent.SetActive(false);
-
-        foreach (var keyPointer in keyPointers)
-        {
-            keyPointer.SetActive(false);
-        }
     }
 
     #region Ввод

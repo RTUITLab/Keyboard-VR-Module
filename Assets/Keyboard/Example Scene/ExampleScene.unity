@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 6871527399415417462, guid: cb5a5233df9302f4ca11073f85344be4,
         type: 3}
       propertyPath: m_Name
-      value: KbKeyPointer Movement
+      value: KbKeyPointer Movement L
       objectReference: {fileID: 0}
     - target: {fileID: 6871527399415417465, guid: cb5a5233df9302f4ca11073f85344be4,
         type: 3}
@@ -270,6 +270,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5a5233df9302f4ca11073f85344be4, type: 3}
+--- !u!1 &146652085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6871527399415417462, guid: cb5a5233df9302f4ca11073f85344be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 146652084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &483797008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,6 +643,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+--- !u!1 &483797009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 483797008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &483797010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483797009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910d02c79d5a614794ffb14310c8d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPointerLeft: {fileID: 146652085}
+  keyPointerRight: {fileID: 883244634}
 --- !u!1 &680394316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -971,7 +997,7 @@ PrefabInstance:
     - target: {fileID: 6871527399415417462, guid: cb5a5233df9302f4ca11073f85344be4,
         type: 3}
       propertyPath: m_Name
-      value: KbKeyPointer Movement
+      value: KbKeyPointer Movement R
       objectReference: {fileID: 0}
     - target: {fileID: 6871527399415417465, guid: cb5a5233df9302f4ca11073f85344be4,
         type: 3}
@@ -1036,12 +1062,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 883244632}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 883244634}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &883244634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6871527399415417462, guid: cb5a5233df9302f4ca11073f85344be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 883244632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1238268209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 453574, guid: dc06161b6d97feb419f45f03b62e14b9,
