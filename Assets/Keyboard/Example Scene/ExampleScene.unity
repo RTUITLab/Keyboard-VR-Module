@@ -1096,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 6871527399415417462, guid: 939bb74ce3cf2fb4a9ec7af7ac9723a9,
         type: 3}
       propertyPath: m_Name
-      value: KbKeyPointer Default
+      value: KbKeyPointer Default L
       objectReference: {fileID: 0}
     - target: {fileID: 6871527399415417462, guid: 939bb74ce3cf2fb4a9ec7af7ac9723a9,
         type: 3}
