@@ -586,8 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910d02c79d5a614794ffb14310c8d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyPointerLeft: {fileID: 0}
-  keyPointerRight: {fileID: 0}
+  keyPointerLeft: {fileID: 1779881471}
+  keyPointerRight: {fileID: 817480626}
 --- !u!1 &680394316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9,
