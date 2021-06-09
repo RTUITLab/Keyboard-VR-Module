@@ -16,10 +16,10 @@ public class Keyboard : MonoBehaviour
 
     private void Start()
     {
-        UpdateKeysField();
-
         foreach (var layout in layouts) layout.SetActive(false);
         layouts[currentLayout].SetActive(true);
+
+        ToggleShift();
     }
 
     public void Enable()
@@ -93,7 +93,7 @@ public class Keyboard : MonoBehaviour
     {
         layouts[currentLayout].SetActive(false);
         currentLayout++;
-        currentLayout /= layouts.Length;
+        currentLayout %= layouts.Length;
         layouts[currentLayout].SetActive(true);
     }
 
