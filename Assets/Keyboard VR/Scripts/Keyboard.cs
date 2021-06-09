@@ -7,7 +7,7 @@ public class Keyboard : MonoBehaviour
 {
     [HideInInspector] public List<KbKey> kbKeys;
     [Multiline] public string Text;
-    private bool shiftPressed = false;
+    private bool shiftPressed = true;
 
     [SerializeField] private GameObject[] layouts;
     private int currentLayout = 0;
@@ -19,7 +19,7 @@ public class Keyboard : MonoBehaviour
         foreach (var layout in layouts) layout.SetActive(false);
         layouts[currentLayout].SetActive(true);
 
-        ToggleShift();
+        StartCoroutine(UpdateKeysField());
     }
 
     public void Enable()
@@ -42,7 +42,7 @@ public class Keyboard : MonoBehaviour
 
             // Шифт работает на одно нажатие, как на клавиатурах у мобилок.
             shiftPressed = false;
-            UpdateKeysField();
+            StartCoroutine(UpdateKeysField());
         }
         else
         {
@@ -70,14 +70,15 @@ public class Keyboard : MonoBehaviour
     public void ToggleShift()
     {
         shiftPressed = !shiftPressed;
-        UpdateKeysField();
+        StartCoroutine(UpdateKeysField());
     }
 
     /// <summary>
     /// Используется для обновления текста на клавише (заглавная или строчная буква).
     /// </summary>
-    private void UpdateKeysField()
+    private IEnumerator UpdateKeysField()
     {
+        yield return new WaitForEndOfFrame();
         foreach (var key in kbKeys)
         {
             if (key)
@@ -95,6 +96,8 @@ public class Keyboard : MonoBehaviour
         currentLayout++;
         currentLayout %= layouts.Length;
         layouts[currentLayout].SetActive(true);
+
+        StartCoroutine(UpdateKeysField());
     }
 
     #endregion
