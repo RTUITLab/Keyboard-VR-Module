@@ -1,6 +1,3 @@
-
-
-
 # Keyboard-VR-Module
 
 Модуль с VR-клавиатурой, который можно за несколько минут применить в любом проекте для SteamVR.
@@ -12,11 +9,17 @@
 
 1. Устанавливаем SteamVR, если этого еще не сделали;
 2. Скачиваем Unity Package из вкладки Releases;
-3. Импортируем файл Unity Package;
+3. Импортируем файл Unity Package; 
+
+<img width="600" alt="3" src="https://user-images.githubusercontent.com/46666053/121687165-b2637880-caca-11eb-8fc5-fae15c2d618f.png">
+
 4. Добавляем на обе руки игрока префаб KbKeyPointer;
+
+<img width="600" alt="4" src="https://user-images.githubusercontent.com/46666053/121687464-0d956b00-cacb-11eb-88d4-8d5e668bb10f.png">
+
 5. Добавляем на сцену префаб клавиатуры;
 
-
+<img width="600" alt="5" src="https://user-images.githubusercontent.com/46666053/121687551-29990c80-cacb-11eb-8aee-c80701964de4.png">
 
 ## Взаимодействие с клавиатурой
 
@@ -40,4 +43,4 @@
 
 После создания раскладки по аналогии с русской и английской, необходимо указать на нее ссылку компоненту на префабе клавиатуры.
 
-[//]: # (TODO: Скриншот массива ссылок на раскладки)
+<img width="600" alt="6" src="https://user-images.githubusercontent.com/46666053/121688216-decbc480-cacb-11eb-8b9a-c1df16dec684.png">
