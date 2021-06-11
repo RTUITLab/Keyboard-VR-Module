@@ -35,6 +35,7 @@ public class KbKey : MonoBehaviour
 
     private void KeyClicked()
     {
+        Debug.Log(key);
         switch (key)
         {
             case Keys.Symbol: // Стандартная клавиша. Вводит символ из подчиненного текстового поля.
@@ -101,7 +102,7 @@ public class KbKey : MonoBehaviour
             if (keyField)
             {
                 // Делаем все клавиши заглавными для упрощения, но в плеймоде они могут становиться строчными.
-                keyField.text = keyField.text.ToUpper();
+                // keyField.text = keyField.text.ToUpper();
 
                 // Именуем объекты в иерархии по шаблону.
                 gameObject.name = "Key_" + keyField.text; 
