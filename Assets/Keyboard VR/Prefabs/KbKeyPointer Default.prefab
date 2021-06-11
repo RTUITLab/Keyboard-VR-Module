@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6871527399415417467}
   - component: {fileID: 6871527399415417464}
   m_Layer: 8
-  m_Name: KbKeyPointer
+  m_Name: KbKeyPointer Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pose: {fileID: 0}
+  laserMaterial: {fileID: 2100000, guid: fb69c6f72e3777043896f891c645d872, type: 2}
   interactWithUI:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0

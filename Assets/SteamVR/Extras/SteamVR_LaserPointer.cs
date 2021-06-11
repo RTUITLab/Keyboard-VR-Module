@@ -7,6 +7,7 @@ namespace Valve.VR.Extras
     public class SteamVR_LaserPointer : MonoBehaviour
     {
         public SteamVR_Behaviour_Pose pose;
+        public Material laserMaterial;
 
         //public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.__actions_default_in_InteractUI;
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
@@ -65,9 +66,8 @@ namespace Valve.VR.Extras
                     Object.Destroy(collider);
                 }
             }
-            Material newMaterial = new Material(Shader.Find("Unlit/Color"));
-            newMaterial.SetColor("_Color", color);
-            pointer.GetComponent<MeshRenderer>().material = newMaterial;
+            laserMaterial.SetColor("_Color", color);
+            pointer.GetComponent<MeshRenderer>().material = laserMaterial;
         }
 
         public virtual void OnPointerIn(PointerEventArgs e)
