@@ -2422,6 +2422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Multi Line Field with Kb
       objectReference: {fileID: 0}
+    - target: {fileID: 6866620602640615662, guid: 6f8515bc42133a14abe754492eaf8b3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6866620604095462394, guid: 6f8515bc42133a14abe754492eaf8b3c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
