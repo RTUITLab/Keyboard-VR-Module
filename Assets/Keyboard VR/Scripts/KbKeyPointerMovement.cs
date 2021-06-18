@@ -13,19 +13,20 @@ using Valve.VR.Extras;
 public class KbKeyPointerMovement : KbKeyPointer
 {
     [SerializeField] private Gradient colorProgress;
-    [SerializeField] private float touchAccuracy = 1f; // При меньшем значении меньше усилий для нажатия.
-    private float touchProgress = 0;
-    private PointerEventHandler click;
+    [SerializeField] private float distanceToActivation = 0.4f;
+    private float distanceTravelled;
+    private float touchProgress = 0f;
 
+    private Vector3 keyPosition;
+    private float startDistance;
+    private KbKey targetKey;
+    
     private new void Awake()
     {
-        base.Awake();
+        laserPointer.PointerClick -= PointerClick;
 
-        laserPointer.PointerOut += ResetClick;
-
-        // Переподписываеся, у нас собственный метод считывания нажатия.
-        laserPointer.PointerClick -= PointerClick; 
-        click += PointerClick;
+        laserPointer.PointerIn += StartTracking;
+        laserPointer.PointerOut += EndTracking;
     }
 
     private void Update()
@@ -34,31 +35,60 @@ public class KbKeyPointerMovement : KbKeyPointer
         SetLaserColor();
     }
 
-    /// <summary>
-    /// Сброс прогресса нажатия при остановке наведения на клавишу.
-    /// </summary>
-    private void ResetClick(object sender, PointerEventArgs e)
-    {
-        touchProgress = 0;
-    }
-
     private void TrackClick()
     {
-        // Здесь будет происходить считывание прогресса нажатия на клавишу.
-
-
-        if (true)
-        {
-            // В случае успешного нажатия вызываем click и сбрасываем прогресс.
-
-            click.Invoke(default, default);
+        if (keyPosition == Vector3.zero) {
+            touchProgress = 0f;
+            return;
         }
 
-        throw new NotImplementedException();
+        // Считывание прогресса нажатия на клавишу.
+        distanceTravelled = startDistance - Vector3.Distance(transform.position, keyPosition);
+
+        touchProgress = distanceTravelled / distanceToActivation;
+
+        // При оттягивании руки далеко назад происходит сброс расстояния.
+        if (distanceTravelled < 0)
+        {
+            startDistance = Vector3.Distance(transform.position, keyPosition);
+        }
+
+        if (distanceTravelled > distanceToActivation)
+        {
+            PointerClick();
+        }
     }
+
 
     private void SetLaserColor()
     {
         laserPointer.color = colorProgress.Evaluate(touchProgress);
+    }
+
+    private void StartTracking(object sender, PointerEventArgs e)
+    {
+        KbKey button = e.target.GetComponent<KbKey>();
+
+        keyPosition = button.transform.position;
+        startDistance = Vector3.Distance(transform.position, keyPosition);
+    }
+
+    private void EndTracking(object sender, PointerEventArgs e)
+    {
+        keyPosition = Vector3.zero;
+        startDistance = 0;
+    }
+
+    public void PointerClick()
+    {
+        KbKey button = targetKey.GetComponent<KbKey>();
+
+        if (button != null)
+        {
+            if (button.EventClick != null)
+            {
+                button.EventClick.Invoke();
+            }
+        }
     }
 }

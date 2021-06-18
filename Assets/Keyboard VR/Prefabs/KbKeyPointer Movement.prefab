@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pose: {fileID: 0}
+  laserMaterial: {fileID: 0}
   interactWithUI:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0
@@ -98,4 +99,4 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  touchAccuracy: 1
+  distanceToActivation: 0.4
