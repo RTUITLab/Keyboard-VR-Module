@@ -33,17 +33,6 @@ public class KbKeyPointerMovement : KbKeyPointer
     {
         TrackClick();
         SetLaserColor();
-
-        #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartTracking(default, default);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F)) {
-            EndTracking(default, default);
-        }
-        #endif
     }
 
     private void TrackClick()
@@ -78,6 +67,8 @@ public class KbKeyPointerMovement : KbKeyPointer
 
     private void StartTracking(object sender, PointerEventArgs e)
     {
+        Debug.Log("Started Tracking");
+
         KbKey button = e.target.GetComponent<KbKey>();
 
         keyPosition = button.transform.position;
@@ -86,12 +77,16 @@ public class KbKeyPointerMovement : KbKeyPointer
 
     private void EndTracking(object sender, PointerEventArgs e)
     {
+        Debug.Log("Ended Tracking");
+
         keyPosition = Vector3.zero;
         startDistance = 0;
     }
 
     public void PointerClick()
     {
+        Debug.Log("Click Tracked");
+
         KbKey button = targetKey.GetComponent<KbKey>();
 
         if (button != null)
