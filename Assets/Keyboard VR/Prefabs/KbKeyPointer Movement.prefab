@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pose: {fileID: 0}
-  laserMaterial: {fileID: 0}
+  laserMaterial: {fileID: 2100000, guid: fb69c6f72e3777043896f891c645d872, type: 2}
   interactWithUI:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0

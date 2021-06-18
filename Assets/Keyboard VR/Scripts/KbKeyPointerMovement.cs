@@ -33,6 +33,17 @@ public class KbKeyPointerMovement : KbKeyPointer
     {
         TrackClick();
         SetLaserColor();
+
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartTracking(default, default);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F)) {
+            EndTracking(default, default);
+        }
+        #endif
     }
 
     private void TrackClick()
